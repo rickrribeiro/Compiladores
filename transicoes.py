@@ -134,8 +134,52 @@ print(rule2)
 # for idx, text[i] in enumerate(text):
 #     print('rule3')
 
-# for idx, text[i] in enumerate(text):
-#     print('rule4')
+i=0
+init = 0
+end = 0
+old_i =0 #guarda o valor de i quando ele começou a buscar no parentesis
+open=0
+aux=0    
+while i < len(text):
+    
+    if text[i] == '{' or text[i]=='[':
+        aux=i
+        while(ord(text[aux-1]) >= ord('0') and ord(text[aux-1])<= ord('9')):
+            aux-=1
+        while(ord(text[aux]) >= ord('0') and ord(text[aux])<= ord('9')):
+            init*=10
+            init+=ord(text[aux]) - ord('0')
+            aux+=1  
+
+        i+=1
+        old_i = i
+        #vai buscar o estado final
+        while(True):
+            
+            if text[i] == '{' or  text[i]=='[':
+                open+=1
+            if text[i] == '}' or  text[i]==']':
+                if open == 0:
+                    
+                    while  i<len(text)-1 and (ord(text[i+1]) >= ord('0') and ord(text[i+1])<= ord('9')):
+                        
+                        end*=10
+                        end+= ord(text[i+1]) - ord('0')
+                        i+=1
+                    break
+                else:
+                    open-=1 
+            i+=1               
+        i=old_i
+        rule4.append((init,'e',end))
+        end=0
+        init=0
+        
+    else:
+        i+=1
+        open=0    
+
+print(rule4)    
 
 #2:08
 #2:23
