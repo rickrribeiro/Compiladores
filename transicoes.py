@@ -68,7 +68,9 @@ while i < len(text):
                     i-=1
                 else:
                     i-=1
-                    break    
+                    break
+        if text[i].isdigit()== False and text[i] != '"' and ((ord(text[i]) < ord('a') or ord(text[i])> ord('z')) and (ord(text[i]) >= ord('A') or ord(text[i])<= ord('Z'))):
+            init = -1            
     i+=1
 print(rule1)
 
