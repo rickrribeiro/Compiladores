@@ -22,9 +22,7 @@ state =''
 
 
 i=0    
-#for idx, text[i] in enumerate(text):
 while i < len(text):
-    print(str(init)+" "+state+" ->"+str(end))
     if(text[i] == '"'):
         i+=1
         continue
@@ -75,9 +73,63 @@ while i < len(text):
 print(rule1)
 
 
-## salva o estado, se ver quenão é, zera ele. se ver que é, pega o proximo
-# for idx, text[i] in enumerate(text):
-#     print('rule2')
+i=0
+init = 0
+end = 0
+old_i =0 #guarda o valor de i quando ele começou a buscar no parentesis
+open=0
+aux=0    
+while i < len(text):
+    
+    if text[i] == '(' or text[i]=='[':
+        i+=1
+        old_i = i
+        #vai buscar o estado final
+        while(True):
+            
+            if text[i] == '(' or  text[i]=='[':
+                open+=1
+            if text[i] == ')' or  text[i]==']':
+                if open == 0:
+                    
+                    while (ord(text[i+1]) >= ord('0') and ord(text[i+1])<= ord('9')):
+                        
+                        end*=10
+                        end+= ord(text[i+1]) - ord('0')
+                        i+=1
+                    break
+                else:
+                    open-=1 
+            i+=1               
+        i=old_i
+
+        while(open!=-1):
+            if text[i] == '(' or  text[i]=='[':
+                open+=1
+            
+            if ((text[i]== '|' or (text[i]==')' or text[i]==']')) and open==0):
+                aux=i
+                while(ord(text[aux-1]) >= ord('0') and ord(text[aux-1])<= ord('9')):
+                   aux-=1
+                while(ord(text[aux]) >= ord('0') and ord(text[aux])<= ord('9')):
+                    init*=10
+                    init+=ord(text[aux]) - ord('0')
+                    aux+=1    
+                rule2.append((init,'e',end))
+                init=0     
+            if text[i] == ')' or  text[i]==']':        
+                open-=1
+            i+=1
+        i=old_i
+        end=0   
+    else:
+        i+=1
+        open=0    
+
+print(rule2)    
+
+
+
 
 # for idx, text[i] in enumerate(text):
 #     print('rule3')
