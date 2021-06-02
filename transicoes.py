@@ -87,12 +87,12 @@ while i < len(text):
         #vai buscar o estado final
         while(True):
             
-            if text[i] == '(' or  text[i]=='[':
+            if text[i] == '(' or  text[i]=='[' or text[i]=='{':
                 open+=1
-            if text[i] == ')' or  text[i]==']':
+            if text[i] == ')' or  text[i]==']'or text[i]=='}':
                 if open == 0:
                     
-                    while (ord(text[i+1]) >= ord('0') and ord(text[i+1])<= ord('9')):
+                    while i<len(text)-1 and(ord(text[i+1]) >= ord('0') and ord(text[i+1])<= ord('9')):
                         
                         end*=10
                         end+= ord(text[i+1]) - ord('0')
@@ -104,10 +104,10 @@ while i < len(text):
         i=old_i
 
         while(open!=-1):
-            if text[i] == '(' or  text[i]=='[':
+            if text[i] == '(' or  text[i]=='[' or text[i]=='{':
                 open+=1
             
-            if ((text[i]== '|' or (text[i]==')' or text[i]==']')) and open==0):
+            if ((text[i]== '|' or (text[i]==')' or text[i]==']' or text[i]=='}')) and open==0):
                 aux=i
                 while(ord(text[aux-1]) >= ord('0') and ord(text[aux-1])<= ord('9')):
                    aux-=1
@@ -117,7 +117,7 @@ while i < len(text):
                     aux+=1    
                 rule2.append((init,'e',end))
                 init=0     
-            if text[i] == ')' or  text[i]==']':        
+            if text[i] == ')' or  text[i]==']' or text[i]=='}':        
                 open-=1
             i+=1
         i=old_i
@@ -133,6 +133,9 @@ print(rule2)
 
 # for idx, text[i] in enumerate(text):
 #     print('rule3')
+
+
+
 
 i=0
 init = 0
