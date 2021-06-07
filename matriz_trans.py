@@ -11,8 +11,9 @@ def genMatrix(filename,array):
     row_list.append(state)
     aux = ''
     for i in init:
-        print(i)
+        
         linha = []
+        linha.append(i)
         for st in state:
             tem = False
             for n in array:
