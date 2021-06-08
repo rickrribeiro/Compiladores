@@ -1,0 +1,60 @@
+principal vai ser o sintatico
+o lexico é chamado pelo sintatico em loop para formar o atomo e retornar
+o sintatico e o lexico chama a tabela de simbolos e a tabela de palavras e simbolos reservados
+tabela de simbolos esta preenchido com todos os simbolos reservados e seus códigos
+
+sintatico:
+ inicializa a tablea de simbolos e palavras reservados
+pede o nome do fonte a compilar
+posiciona primeiro caracter
+chama o lexico p tentar formar o atomo
+
+lexico; após receber o texto do sintatico:
+ tenta determinar o padrão a seguir,
+ forma o atomo de acordo com o padrão,
+filtra caracteres invalidos
+filtra construções nao relevantes
+armazena dados nas tabelas de simbolos
+retorna codigo formado
+
+apos retornado:
+o sintatico verifica sequencia (opcional)
+verifica mudança de escopo
+gera a saida (relatorio da analise lexica .lex, relatorio da tabela de simbolos .tab e reatorio do sintatico .sin (opcional)
+
+----------------------
+utiliza matriz de transições para verificar erros de sintaxe. ver se as transições estão certas e se terminam em um estado final
+se chamar o sintatico antes do lexico, chamar o lexico mesmo assim p gerar o relatório pois tem que entregar o léxico completo 
+
+vetor de estados, vetor de atomos e matriz de cada automato
+
+quando tiver em um automato e tem um atomo pra outro atomato, utiliza automato de pilha
+
+
+-----------------
+eliminar transição em vazio:
+coloca as transições do segundo no primeiro. se for final o primeiro vira final
+
+eliminar transição não deterministica: ex: x(a) pode ir pra y e pra z
+	cria um novo estado que é conjunto dos dois, preencher a linha do estado criado com a união das linhas de cada um dos estados, se algum deles for final preenche a linha como final
+elimina as transições não deterministicas recursivamente
+
+eliminar estados não acessiveis: após eliminar vazio e deterministico, alguns estados podem ser não acessiveis. rodar todos os estados que não são acessiveis ( que não tem nenhuma transição p ele) cria duas colunas (acessivel e considerado) começa pela 0 colocando como acessivel e vai rodando marcando as transições como acessiveis, depois roda todas as acessiveis colocando como consideravel caso ja tenha visto
+
+
+eliminar estados equivalentes:
+eliminar estados com o mesmo comportamento
+ex:
+estado 6 com 'a' vai pro 8
+estado 7 com 'a' vai pro 9
+o 8 e o 9 vão pro 10 com 'b'
+pode eliminar o 9 e o 7 ir pro 8
+
+1. separar possiveis estados equivalentes finais e não finais por consumo de atomo ( eliminar os que vão diretamente pro mesmo atomo)
+2. aplicar testes em pares de estados do mesmo conjunto
+	montar arvore
+	diferenciar o final do não final
+	ver os candidatos em cada no da arvore e faz os testes p saber se são aplicando a etapa 1
+
+3. simplificar automato e corrigir as transições ex: 1 == 4, elimina 4 e muda as transições de 4 pra 1
+
