@@ -81,16 +81,17 @@ while(True):
                 last_state= str(j)
                 for idx2, item2 in enumerate(text[idx+1:]):
                     
-                    if item2 == '{' and (text[idx2]!='.'):
+                    if item2 == '{'and (text[idx + idx2 + 2]=='.'):
                         print(text)
                         print(text[idx2])
                         open_key+=1
-                    elif item2 =='}' and   (text[idx2]!='.'):
+                    elif item2 =='}' and   (text[idx + idx2 + 2]=='.'):
                         open_key-=1
                         if open_key == -1:
                             text = text[:idx+idx2+2] + str(j) + text[idx+idx2 + 3:]
                             last_state= str(j)
                             j+=1
+                            open_key=0
                         break
                 break
 print(text)
