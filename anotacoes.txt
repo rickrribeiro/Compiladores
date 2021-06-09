@@ -58,3 +58,4 @@ pode eliminar o 9 e o 7 ir pro 8
 
 3. simplificar automato e corrigir as transições ex: 1 == 4, elimina 4 e muda as transições de 4 pra 1
 
+monta o conjunto dos estados e cria estado novo pra cada conjunto
