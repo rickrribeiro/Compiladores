@@ -1,0 +1,14 @@
+entrega 1:
+1) a regra original (feito)
+2) a regra com a determinação dos estados do autômato(feito)
+3) a lista de transições de estado por cada uma das regras de determinação de estados(feito)
+4) a identificação do estado inicial e dos estados finais(feito)
+5) a transformação do autômato para a notação de tabelas de transição em matriz(feito)
+
+entrega 2:
+1) o autômato transformado em tabela pela aplicação da etapa do Bruto anterior (feito)
+2) o autômato em tabela após eliminação das transições em vazio
+3) o autômato em tabela após eliminação das transições não determinísticas 
+4) o autômato em tabela após eliminação dos estados não acessíveis 
+5) o autômato em tabela após eliminação dos estados equivalentes 
+6) o autômato ótimo em tabela 
