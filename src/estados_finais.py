@@ -44,7 +44,7 @@ while(aux!=len(text)):
     aux+=1    
 fin.append(state)
 
-f = open("estados_program.txt", "a")
+f = open("estados_program.txt", "w+")
 f.write('Inicial: 0\n\n')
 f.write('Finais: ')
 f.write(str(fin))

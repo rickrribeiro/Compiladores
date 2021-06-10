@@ -87,7 +87,7 @@ def define_estado(name,text):
                                 break
                     break
     
-    f = open("txts\\estados_"+name+".txt",'w')
+    f = open("txts\\estados_"+name+".txt",'w+')
     f.write(text)
     f.close()
     defTransicoes(name,text)

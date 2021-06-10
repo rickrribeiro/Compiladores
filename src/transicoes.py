@@ -79,13 +79,17 @@ def defTransicoes(name,text):
                     state+=text[i+2]
             if state!='':
                 aux = i-1
+               
+                
+                init = 0
                 while(True):
-                    if ord(text[aux]) >= ord('0') and ord(text[aux])<= ord('9'):
+                    if (ord(text[aux]) >= ord('0')) and (ord(text[aux])<= ord('9')):
                         init*=10
                         init+= ord(text[aux]) - ord('0')
                         aux-=1
                         continue
                     else:
+                        init = int(str(init)[::-1])
                         break
                 i+=2
                 if text[i] != '"':
@@ -108,7 +112,7 @@ def defTransicoes(name,text):
         aux=0
 
     rule1 +=rule1_2
-    print(rule1)
+    
 
 
 
@@ -167,7 +171,7 @@ def defTransicoes(name,text):
             i+=1
             opend=0    
 
-    print(rule2)    
+
 
 
 
@@ -225,8 +229,7 @@ def defTransicoes(name,text):
             i+=1
             opend=0    
 
-    print(rule3)    
-
+    
 
 
 
@@ -276,25 +279,28 @@ def defTransicoes(name,text):
             i+=1
             opend=0    
 
-    print(rule4)    
+     
 
-    f = open("txts/trans_regra1_"+name+".txt", "a")
+    f = open("txts/trans_regra1_"+name+".txt", "w+")
     f.write(str(rule1))
     f.close()
 
-    f = open("txts/trans_regra2_"+name+".txt", "a")
+    f = open("txts/trans_regra2_"+name+".txt", "w+")
     f.write(str(rule2))
     f.close()
 
-    f = open("txts/trans_regra3_"+name+".txt", "a")
+    f = open("txts/trans_regra3_"+name+".txt", "w+")
     f.write(str(rule3))
     f.close()
 
-    f = open("txts/trans_regra4_"+name+".txt", "a")
+    f = open("txts/trans_regra4_"+name+".txt", "w+")
     f.write(str(rule4))
     f.close()
 
     all = rule1+rule2+rule3+rule4
+    f = open("txts/trans_todas_regras_"+name+".txt", "w+")
+    f.write(str(all))
+    f.close()
     genMatrix(name, all)
 
 #2:08

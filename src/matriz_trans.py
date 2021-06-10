@@ -44,9 +44,9 @@ def genMatrix(name,array):
                 linha.append('-')     
         row_list.append(linha)
         estados.append(estado)
-        print('lennnn')
+        
     
-    with open(filename, 'w', newline='') as file:
+    with open(filename, 'w+', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(row_list)
 
