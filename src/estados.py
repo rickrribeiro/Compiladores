@@ -1,5 +1,5 @@
 from src.transicoes import defTransicoes
-
+from src.estados_finais import estadosFin
 #example
 #text = '.(.(.{."{"."a".";"."b"."}".}.).(."c".|.A.(."a".|."b".).).).|.[."a".|."b".].{."b"."c".|.A.|.B.}.'
 #text='.(.(.{.{."{"."}"."a".}."b"."}".}.).(."c".|.A.(."a".|."b".).).).|.[."a".|."b".].{."b"."c".|.A.|.B.}.'
@@ -90,6 +90,9 @@ def define_estado(name,text):
     f = open("txts\\estados_"+name+".txt",'w+')
     f.write(text)
     f.close()
+    finais = estadosFin(name,text)
+    print('fin')
+    print(finais)
     defTransicoes(name,text)
 #."a" ."b" .(."c".|.A.(."a" .| ."b".).).|.[."a".|."b".].{."b"."c".|.A.|.B.}.
 
