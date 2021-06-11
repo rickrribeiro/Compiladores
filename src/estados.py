@@ -93,7 +93,7 @@ def define_estado(name,text):
     finais = estadosFin(name,text)
     print('fin')
     print(finais)
-    defTransicoes(name,text)
+    defTransicoes(name,text,finais)
 #."a" ."b" .(."c".|.A.(."a" .| ."b".).).|.[."a".|."b".].{."b"."c".|.A.|.B.}.
 
 #2:01 -- completo

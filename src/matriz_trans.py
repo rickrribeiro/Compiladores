@@ -11,7 +11,7 @@ class Transicao:
         self.atomo = atomo
         self.finais = []
 
-def genMatrizTansicoes(name,array):
+def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)
     states = genEstados(array)
     genMatrix(name,states, atoms)
