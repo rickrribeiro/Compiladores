@@ -1,5 +1,5 @@
 import csv
-from typing import final
+from src.trans_vazio import eliminaVazio
 #o estado tem uma lista de transicoes atreladas a ele
 class Estado:
     def __init__(self, init):
@@ -15,8 +15,10 @@ def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)
     states = genEstados(array)
     genMatrix(name,states, atoms)
+    vazio = eliminaVazio(name, states,finais)
+    genMatrix("vazio_"+name,vazio,atoms)
 
-
+    
 def genEstados(array):
     estados = []
     transicao= ''
