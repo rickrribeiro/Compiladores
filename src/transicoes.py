@@ -1,4 +1,4 @@
-from src.matriz_trans import genMatrix
+from src.matriz_trans import genMatrix, genMatrizTansicoes
 
 def defTransicoes(name,text):
 
@@ -301,7 +301,7 @@ def defTransicoes(name,text):
     f = open("txts/trans_todas_regras_"+name+".txt", "w+")
     f.write(str(all))
     f.close()
-    genMatrix(name, all)
+    genMatrizTansicoes(name, all)
 
 #2:08
 #2:23
