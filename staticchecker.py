@@ -19,48 +19,58 @@ f.close()
 
 states = []
 final = []
-name = 'teste'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-testStates= bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-testeFinal = f.read()
-f.close()
+# name = 'teste'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# testStates= bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# testeFinal = f.read()
+# f.close()
 
-name = 'program'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-programStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-programFinal = f.read()
-f.close()
-states.append(programStates)
-final.append(programFinal)
+# name = 'program'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# programStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# programFinal = f.read()
+# f.close()
+# states.append(programStates)
+# final.append(programFinal)
 
-name = 'factor'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-factorStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-factorFinal = f.read()
-f.close()
-states.append(factorStates)
-final.append(factorFinal)
+# name = 'factor'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# factorStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# factorFinal = f.read()
+# f.close()
+# states.append(factorStates)
+# final.append(factorFinal)
 
-name = 'statement'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-statementStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-statementFinal = f.read()
-f.close()
-states.append(statementStates)
-final.append(statementFinal)
+# name = 'statement'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# statementStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# statementFinal = f.read()
+# f.close()
+# states.append(statementStates)
+# final.append(statementFinal)
 
 
 
-lexicalAnalyzer(source,states,final)
+result = lexicalAnalyzer(source,states,final)
+filename = sys.argv[1].split('.201')
+
+
+f = open(filename[0]+'.LEX', 'w+')
+f.write(result[0])
+f.close
+f = open(filename[0]+'.TAB', 'w+')
+f.write(result[1])
+f.close
+
