@@ -53,12 +53,12 @@ def tabelaSimbolosPalavras():
     tabela.append(('program', 'D01'))
     tabela.append(('factor', 'D02'))
     tabela.append(('statement', 'D03'))
-   
 
     return tabela
 
 
-simbolos = ['a']
+simbolos = []
 def tabelaSimbolos(simb): #tem as strings, variáveis, numeros inteiros, numeros float
-    simbolos.append(simb)
+    if simb != None:
+        simbolos.append(simb)
     return simbolos
