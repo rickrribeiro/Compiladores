@@ -1,11 +1,21 @@
+from os import stat
 from src.lexico import lexicalAnalyzer
 from src.bota_ponto import bpontos
 import sys
 
 if len(sys.argv)!= 2:
-    print('Informe o arquivo de entrada e o arquivo de saida! ex: python ./compiler.py entrada.txt saida.txt')
-if(len(sys.argv[1].split('.txt'))!= 2):
-    print('O arquivo de entrada deve ser um txt')
+    print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
+try:
+
+    if(len(sys.argv[1].split('.201'))!= 2):
+        f = open(sys.argv[1]+'.201', 'r')
+    else:
+        f = open(sys.argv[1], 'r')
+except:
+    print('Código fonte não encontrado!')
+    exit()
+source = f.read()
+f.close()
 
 states = []
 final = []
@@ -52,8 +62,5 @@ states.append(statementStates)
 final.append(statementFinal)
 
 
-f = open(sys.argv[1], 'r')
-text = f.read()
-f.close()
 
-lexicalAnalyzer(text,states,final)
+lexicalAnalyzer(source,states,final)
