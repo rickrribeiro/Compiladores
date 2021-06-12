@@ -35,10 +35,12 @@ def estadosFin(name, text):
         aux+=1    
     fin.append(state)
 
-    f = open("txts\\estado_final_"+name+".txt", "w+")
+    f = open("txts\\estado_final_Inicial_"+name+".txt", "w+")
     f.write('Inicial: 0\n\n')
     f.write('Finais: ')
     f.write(str(fin))
     f.close()
-
+    f = open("txts\\estado_final_"+name+".txt", "w+")
+    f.write(str(fin))
+    f.close()
     return fin

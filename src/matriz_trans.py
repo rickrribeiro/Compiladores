@@ -15,11 +15,11 @@ def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)
     states = genEstados(array)
     genMatrix(name,states, atoms)
-    vazio = eliminaVazio(name, states,finais)
-    genMatrix("vazio_"+name,vazio,atoms)
-
+    states = eliminaVazio(name, states,finais)
+    #genMatrix("vazio_"+name,states,atoms)
+    return states
     
-def genEstados(array):
+def genEstados(array): 
     estados = []
     transicao= ''
     init = set(e[0] for e in array)

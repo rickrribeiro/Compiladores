@@ -32,5 +32,5 @@ def bpontos(name, text):
     f = open("txts\\automato_bruto_"+name+".txt",'w+')
     f.write(text)
     f.close()
-    define_estado(name=name,text=text)
+    return define_estado(name=name,text=text)
     

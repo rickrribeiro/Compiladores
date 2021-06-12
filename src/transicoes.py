@@ -301,7 +301,7 @@ def defTransicoes(name,text, finais):
     f = open("txts/trans_todas_regras_"+name+".txt", "w+")
     f.write(str(all))
     f.close()
-    genMatrizes(name, all, finais)
+    return genMatrizes(name, all, finais)
 
 #2:08
 #2:23
