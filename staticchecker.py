@@ -65,12 +65,15 @@ final = []
 
 result = lexicalAnalyzer(source,states,final)
 filename = sys.argv[1].split('.201')
-
+# for i in source:
+#         print(i)
+#         if i == '\n':
+#             print("AAAAAAAAAAAA")
 
 f = open(filename[0]+'.LEX', 'w+')
-f.write(result[0])
+f.write(str(result[0]))
 f.close
 f = open(filename[0]+'.TAB', 'w+')
-f.write(result[1])
+f.write(str(result[1]))
 f.close
 
