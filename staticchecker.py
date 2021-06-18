@@ -2,7 +2,7 @@ from os import stat
 from src.lexico import lexicalAnalyzer
 from src.bota_ponto import bpontos
 import sys
-from src.tabelas import tabelaSimbolos
+from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras
 
 if len(sys.argv)!= 2:
     print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
@@ -64,7 +64,7 @@ final.append(statementFinal)
 
 
 while True:
-    result = lexicalAnalyzer(source,states)
+    result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
     if result == source:
         break
     else:
