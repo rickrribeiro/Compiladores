@@ -1,4 +1,4 @@
-AAAA
-bbb
-cc
-d
+A02 A10
+C09 B12
+C03 B12
+A01 AB01 C02

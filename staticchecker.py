@@ -1,5 +1,6 @@
 from os import stat
 from src.lexico import lexicalAnalyzer
+from src.sintatico import sintaticAnalyzer
 from src.bota_ponto import bpontos
 import sys
 from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras
@@ -71,6 +72,16 @@ while True:
         source = result
 
 
+
+#Tem que ver oq faz com esses factors
+#(226, 'factor', 228),
+# E pq o (349, 'Integer-Number', 350) a 350 não tem nenhuma transição começando c ela, sendo que ela n é final
+
+#tem que verificar a estrutura na tabela de simbolos, ver oq precisa botar. Por enquanto só ta feito p adicionar o valor
+#usa esses sources p testar
+source = "A02 A10\nC09 B12\nC03 B12\nA01 AB01 C02" #sao quatro diferentes. não deu p fzr mt pq a maioria ta em vazio
+result = sintaticAnalyzer(source, tabelaSimbolosPalavras())#passa tabela de simbolos com none quando n quer adicionar um novo   
+    
 
 filename = sys.argv[1].split('.201')
 f = open(filename[0]+'.LEX', 'w+')

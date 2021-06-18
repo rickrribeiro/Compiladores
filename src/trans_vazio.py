@@ -5,6 +5,7 @@ from src.trans_nao_det import eliminaNaoDeterministica
 def eliminaVazio(name, states, finais):
     state = getState(states,1)
     print('stateee')
-    if state is not None:
+    if state != None:
         print(state)
+        
     return eliminaNaoDeterministica(name,states,finais) #retornar finais

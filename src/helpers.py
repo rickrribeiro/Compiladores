@@ -5,7 +5,7 @@ def getState(states,id):
         
     return None
 
-def countFinal(states,id):
+def countFinal(states,id): #conta quantas transições tem para esse estado (se retornar 0, ele não é acessivel)
     count = 0 
     for st in states:
         for tr in st.transicoes:
@@ -13,3 +13,5 @@ def countFinal(states,id):
                 if fn == id:
                     count+=1
     return count
+
+    

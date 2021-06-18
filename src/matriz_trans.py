@@ -3,13 +3,13 @@ from src.trans_vazio import eliminaVazio
 #o estado tem uma lista de transicoes atreladas a ele
 class Estado:
     def __init__(self, init):
-        self.estado = init
-        self.transicoes = []
+        self.estado = init #valor do estado
+        self.transicoes = [] #lista de transições
     
 class Transicao:
     def __init__(self, atomo):
-        self.atomo = atomo
-        self.finais = []
+        self.atomo = atomo #atomo da transição
+        self.finais = [] #estados finais da transição
 
 def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)

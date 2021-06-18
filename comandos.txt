@@ -1,0 +1,34 @@
+Abrir vs code:
+    code .
+
+Git:
+    git pull - baixa alterações no projeto
+    git add . - adiciona arquivos para commitar
+    git commit -m "nome do commit" - prepara o commit
+    git push - sobe o commit
+
+python:
+
+    python staticchecker.py codigo.201  - roda o projeto
+    printar no console: print()
+
+
+
+class Estado:
+    def __init__(self, init):
+        self.estado = init #inteiro - valor do estado
+        self.transicoes = [] #array de transições - lista de transições
+    
+class Transicao:
+    def __init__(self, atomo):
+        self.atomo = atomo #string - atomo da transição
+        self.finais = [] #estados destino da transição
+
+
+BASE DO VAZIO p vc ja ir começando papa:
+
+for estado in states:
+    for trans in estado.transicao:
+        if trans.atomo == "e":
+            for fn in finais:
+                estado.transicao.append(getState(states,fn).transicoes)
