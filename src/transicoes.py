@@ -28,7 +28,7 @@ def defTransicoes(name,text, finais):
                 else:
                     end*=10
                     end += ord(text[i]) - ord('0')
-        elif (ord(text[i]) >= ord('a') and ord(text[i])<= ord('z')) or (ord(text[i]) >= ord('A') and ord(text[i])<= ord('Z')):
+        elif (ord(text[i]) >= ord('a') and ord(text[i])<= ord('z')) or (ord(text[i]) >= ord('A') and ord(text[i])<= ord('Z')) or (text[i]=='-' and ((ord(text[i+1]) >= ord('a') and ord(text[i+1])<= ord('z')) or (ord(text[i+1]) >= ord('A') and ord(text[i+1])<= ord('Z')))) :
             if end != 0:
                 rule1.append((init,state,end))
                 state = ''
@@ -59,7 +59,7 @@ def defTransicoes(name,text, finais):
                     else:
                         i-=1
                         break
-            if text[i].isdigit()== False and text[i] != '"' and ((ord(text[i]) < ord('a') or ord(text[i])> ord('z')) and (ord(text[i]) >= ord('A') or ord(text[i])<= ord('Z'))):
+            if text[i].isdigit()== False and text[i] != '"' and ((ord(text[i]) < ord('a') or ord(text[i])> ord('z')) and (ord(text[i]) < ord('A') or ord(text[i])> ord('Z'))):
                 init = -1            
         i+=1
 
