@@ -7,6 +7,5 @@ def eliminaVazio(name, states, finais):
     print('stateee')
     if state != None:
         print(state)
-    else:
-        print("oxe")
+    
     return eliminaNaoDeterministica(name,states,finais) #retornar finais
