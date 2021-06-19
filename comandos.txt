@@ -25,7 +25,7 @@ class Transicao:
         self.finais = [] #estados destino da transição
 
 
-BASE DO VAZIO p vc ja ir começando papa:
+BASE DO VAZIO p vc ja ir começando papa: lembrar de atualizar a lista de estados finais
 
 for estado in states:
     for trans in estado.transicao:

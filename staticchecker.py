@@ -65,13 +65,28 @@ final.append(statementFinal)
 
 #verifica se usa algum simbolo reservado da tabela
 i = 0
-for ch in source:
+line = 1
+for ch in source: #verificar se n ta dentro de uma string
+    if ch == '\n':
+        line+=1
     if ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D':
         if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
-            print(source[i]+source[i+1]+source[i+2]+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
+            print(source[i]+source[i+1]+source[i+2]+"na linha "+str(line)+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
             exit()
     i+=1
 
+#verifica se tem aspas abertas
+open_aspas = 0
+line = 1
+for ch in source:
+    if ch == '\n':
+        line+=1
+    if ch == '"':
+       open_aspas +=1
+print("open aspas = "+ str(open_aspas)) 
+if open_aspas%2 == 1:
+    print('Aspas sem fechar na linha '+ str(line))
+    exit()
 #analisador lexico
 result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(result)    
