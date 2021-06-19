@@ -1,10 +1,33 @@
 def removeComments(source):
-  # aux = False
-  # while True:
-  #   if source
-  print('a')
+  text=''
+  i = 0 
+  while i < len(source):
+    print(i)
+    if source[i]=='/':
+      if source[i+1]== '*':
+        i+=2
+        while i < len(source):
+          if source[i] == '*' and source[i+1]=='/':
+            i+=2
+            break
+          else:
+            i+=1
+          
+      elif source[i+1] =='/':
+        i+=2
+        while i < len(source):
+          source[i]
+          if source[i] == '\n':
+            break
+          else:
+            i+=1
+    else:
+      text += source[i]
+    i+=1
+  return text
+  
 def lexicalAnalyzer(source, symbols):
-    removeComments(source)
+    source = removeComments(source)
     source = source.replace('\n', ' ')
     values = source.split(' ')
     
@@ -52,5 +75,5 @@ def lexicalAnalyzer(source, symbols):
     # 2. Verificar atomos contidos em outros ex: <= não é < e =
     # 3. verificar os atomos da tablea C ex: constant-string, integer-number, etc...
     # 4. verificar comentarios
-    #
+    # 5. verificar se as barras de comentarios nao estao no meio da string
     #
