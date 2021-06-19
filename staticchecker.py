@@ -63,20 +63,25 @@ f.close()
 states.append(statementStates)
 final.append(statementFinal)
 
+#verifica se usa algum simbolo reservado da tabela
+i = 0
+for ch in source:
+    if ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D':
+        if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
+            print(source[i]+source[i+1]+source[i+2]+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
+            exit()
+    i+=1
 
-while True:
-    result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
-    if result == source:
-        break
-    else:
-        source = result
+#analisador lexico
+result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
+print(result)    
 
 
 
 #Tem que ver oq faz com esses factors
 #(226, 'factor', 228),
 # E pq o (349, 'Integer-Number', 350) a 350 não tem nenhuma transição começando c ela, sendo que ela n é final
-
+# E pq statement n tem transição no 1
 #tem que verificar a estrutura na tabela de simbolos, ver oq precisa botar. Por enquanto só ta feito p adicionar o valor
 #usa esses sources p testar
 source = "A02 A10\nC09 B12\nC03 B12\nA01 AB01 C02" #sao quatro diferentes. não deu p fzr mt pq a maioria ta em vazio
