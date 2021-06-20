@@ -90,7 +90,7 @@ if open_aspas%2 == 1:
     print('Aspas sem fechar na linha '+ str(line))
     exit()
 #analisador lexico
-result = lexicalAnalyzer(source, tabelaSimbolosPalavras(), states)
+result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(result)    
 
 
@@ -109,7 +109,7 @@ f.close
 #tem que verificar a estrutura na tabela de simbolos, ver oq precisa botar. Por enquanto só ta feito p adicionar o valor
 #usa esses sources p testar
 source = "A02 A10\nC09 B12\nC03 B12\nA01 AB01 C02" #sao quatro diferentes. não deu p fzr mt pq a maioria ta em vazio
-result = sintaticAnalyzer(source, tabelaSimbolosPalavras())#passa tabela de simbolos com none quando n quer adicionar um novo   
+result = sintaticAnalyzer(source, tabelaSimbolosPalavras(), states)#passa tabela de simbolos com none quando n quer adicionar um novo   
     
 
 
