@@ -62,8 +62,10 @@ def genMatrix(name, states, atoms):
     row_list = []
     row = []
     
-    
-    
+    atoms = list(atoms)
+    atoms.sort()
+    atoms.remove('e')
+    atoms.insert(0,'e')
 
     row_list.append(atoms)
     aux = ''

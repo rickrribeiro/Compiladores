@@ -12,7 +12,7 @@ def defTransicoes(name,text, finais):
     end = 0
     state =''
 
-    print(text)
+   
     text+='a'
     i=0    
     while i < len(text):
@@ -113,10 +113,7 @@ def defTransicoes(name,text, finais):
         aux=0
     
     
-    print('Rule 1.1')
-    print(rule1)
-    print('Rule 1.2')
-    print(rule1_2)
+    
 
     rule1 +=rule1_2
     

@@ -1,4 +1,17 @@
-A02 A10
-C09 B12
-C03 B12
-A01 AB01 C02
+while true 
+int a = 10
+a += 11
+a(True)
+
+// batata
+return 10
+/*
+while true */
+
+/*
+while true
+return true
+
+"bc"
+
+true
