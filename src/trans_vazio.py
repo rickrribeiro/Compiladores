@@ -4,13 +4,18 @@ from src.trans_nao_det import eliminaNaoDeterministica
 
 def eliminaVazio(name, states):
     for estado in states:
-        for trans in estado.transicoes:
-            if trans.atomo == "e": 
-                for fn in trans.finais:
-                    estado.transicoes += getState(states,fn).transicoes
-                    if getState(states,fn).isFinal == True:
-                        estado.isFinal=True
-                estado.transicoes.remove(trans) 
+        aux = False
+        
+        while aux == False:
+            aux = True
+            for trans in estado.transicoes:
+                if trans.atomo == "e": 
+                    aux = False
+                    for fn in trans.finais:
+                        estado.transicoes += getState(states,fn).transicoes
+                        if getState(states,fn).isFinal == True:
+                            estado.isFinal=True
+                    estado.transicoes.remove(trans) 
     
     return states
 
