@@ -50,6 +50,7 @@ def tabelaSimbolosPalavras():
     tabela.append(('character', 'C05'))
     tabela.append(('float-number', 'C06'))
 
+    #ver oq são essas submaquinas
     tabela.append(('program', 'D01'))
     tabela.append(('factor', 'D02'))
     tabela.append(('statement', 'D03'))

@@ -15,8 +15,9 @@ python:
 
 
 class Estado:
-    def __init__(self, init):
+    def __init__(self, init, final):
         self.estado = init #inteiro - valor do estado
+        self.isFinal = final #boolean - estado final?
         self.transicoes = [] #array de transições - lista de transições
     
 class Transicao:

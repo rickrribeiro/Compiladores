@@ -4,6 +4,8 @@ from src.sintatico import sintaticAnalyzer
 from src.bota_ponto import bpontos
 import sys
 from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras
+from src.helpers import removeComments
+
 
 if len(sys.argv)!= 2:
     print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
@@ -62,7 +64,7 @@ statementFinal = f.read()
 f.close()
 states.append(statementStates)
 
-
+source = removeComments(source)
 #verifica se usa algum simbolo reservado da tabela
 i = 0
 line = 1

@@ -3,15 +3,5 @@ int a = 10
 a += 11
 a(True)
 
-// batata
 return 10
-/*
-while true */
 
-/*
-while true
-return true
-
-"bc"
-
-true
