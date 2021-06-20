@@ -24,6 +24,8 @@ def genEstados(array, finais):
     estados = []
     transicao= ''
     init = set(e[0] for e in array)
+    aux = set(e[2] for e in array) 
+    init = set.union(init,aux)# para adicionar os estados sem transições partindo deles
     estado=''
     
     for i in init:

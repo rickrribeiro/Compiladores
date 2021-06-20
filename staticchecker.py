@@ -41,26 +41,26 @@ f.close()
 states.append(programStates)
 
 
-# name = 'factor'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# factorStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# factorFinal = f.read()
-# f.close()
-# states.append(factorStates)
+name = 'factor'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+factorStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+factorFinal = f.read()
+f.close()
+states.append(factorStates)
 
 
-# name = 'statement'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# statementStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# statementFinal = f.read()
-# f.close()
-# states.append(statementStates)
+name = 'statement'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+statementStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+statementFinal = f.read()
+f.close()
+states.append(statementStates)
 
 
 #verifica se usa algum simbolo reservado da tabela
@@ -92,6 +92,13 @@ result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(result)    
 
 
+filename = sys.argv[1].split('.201')
+f = open(filename[0]+'.LEX', 'w+')
+f.write(source)
+f.close
+f = open(filename[0]+'.TAB', 'w+')
+f.write(str(tabelaSimbolos(None)))
+f.close
 
 #Tem que ver oq faz com esses factors
 #(226, 'factor', 228),
@@ -103,11 +110,4 @@ source = "A02 A10\nC09 B12\nC03 B12\nA01 AB01 C02" #sao quatro diferentes. não 
 result = sintaticAnalyzer(source, tabelaSimbolosPalavras())#passa tabela de simbolos com none quando n quer adicionar um novo   
     
 
-filename = sys.argv[1].split('.201')
-f = open(filename[0]+'.LEX', 'w+')
-f.write(source)
-f.close
-f = open(filename[0]+'.TAB', 'w+')
-f.write(str(tabelaSimbolos(None)))
-f.close
 
