@@ -90,7 +90,7 @@ if open_aspas%2 == 1:
     print('Aspas sem fechar na linha '+ str(line))
     exit()
 #analisador lexico
-result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
+result = lexicalAnalyzer(source, tabelaSimbolosPalavras(), states)
 print(result)    
 
 
