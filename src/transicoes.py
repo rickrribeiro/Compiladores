@@ -13,6 +13,7 @@ def defTransicoes(name,text, finais):
     state =''
 
     print(text)
+    text+='a'
     i=0    
     while i < len(text):
         if(text[i] == '"'):

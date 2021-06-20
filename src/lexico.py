@@ -2,7 +2,7 @@ def removeComments(source):
   text=''
   i = 0 
   while i < len(source):
-    print(i)
+    #print(i)
     if source[i]=='/':
       if source[i+1]== '*':
         i+=2
