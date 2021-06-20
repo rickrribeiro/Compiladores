@@ -1,0 +1,3 @@
+ 1. verificar se os (, [, e{ estao corretos no staticchecker
+ 2. verificar se (..., e simbolos reservados não estao dentro de uma string
+ 3. fazer o resto das verificações do lexico
