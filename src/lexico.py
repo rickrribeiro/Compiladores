@@ -76,4 +76,4 @@ def lexicalAnalyzer(source, symbols):
     # 3. verificar os atomos da tablea C ex: constant-string, integer-number, etc...
     # 4. verificar comentarios (check)
     # 5. verificar se as barras de comentarios, atomos ex: float e atomos simbolos ex: ( nao estao no meio de uma string
-    #
+    # 6. verificar atomos juntos, ex (True)

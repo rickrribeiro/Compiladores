@@ -2,7 +2,7 @@ while true
 int a = 10
 a += 11
 a(True)
-A01
+
 // batata
 return 10
 /*
@@ -13,5 +13,5 @@ while true
 return true
 
 "bc"
-"
+
 true

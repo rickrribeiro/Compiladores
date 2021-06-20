@@ -2,8 +2,9 @@ import csv
 from src.trans_vazio import eliminaVazio
 #o estado tem uma lista de transicoes atreladas a ele
 class Estado:
-    def __init__(self, init):
+    def __init__(self, init,final):
         self.estado = init #valor do estado
+        self.isFinal = final
         self.transicoes = [] #lista de transições
     
 class Transicao:
@@ -13,20 +14,24 @@ class Transicao:
 
 def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)
-    states = genEstados(array)
+    states = genEstados(array, finais)
     genMatrix(name,states, atoms)
-    states = eliminaVazio(name, states,finais)
-    #genMatrix("vazio_"+name,states,atoms)
+    states = eliminaVazio(name, states)
+    genMatrix('vazio_'+name, states,atoms)
     return states
     
-def genEstados(array): 
+def genEstados(array, finais): 
     estados = []
     transicao= ''
     init = set(e[0] for e in array)
     estado=''
     
     for i in init:
-        estado = Estado(i)
+        isFinal = False
+        for fn in finais:
+            if i == fn:
+                isFinal = True
+        estado = Estado(i, isFinal)
         for trans in array:
             if(trans[0]==i):
                 
@@ -63,7 +68,12 @@ def genMatrix(name, states, atoms):
 
     for i in states:        
         row = []
-        row.append(i.estado)
+        if i.isFinal==True:
+            row.append('('+str(i.estado)+')')
+            
+            
+        else:    
+            row.append(i.estado)
         for at in atoms:
             tem = False
             for tr in i.transicoes:

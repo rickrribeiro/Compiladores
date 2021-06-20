@@ -39,29 +39,29 @@ f = open('txts\\estado_final_'+name+'.txt', 'r')
 programFinal = f.read()
 f.close()
 states.append(programStates)
-final.append(programFinal)
 
-name = 'factor'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-factorStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-factorFinal = f.read()
-f.close()
-states.append(factorStates)
-final.append(factorFinal)
 
-name = 'statement'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-statementStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-statementFinal = f.read()
-f.close()
-states.append(statementStates)
-final.append(statementFinal)
+# name = 'factor'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# factorStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# factorFinal = f.read()
+# f.close()
+# states.append(factorStates)
+
+
+# name = 'statement'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# statementStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# statementFinal = f.read()
+# f.close()
+# states.append(statementStates)
+
 
 #verifica se usa algum simbolo reservado da tabela
 i = 0
@@ -77,7 +77,7 @@ for ch in source: #verificar se n ta dentro de uma string
 
 #verifica se tem aspas abertas
 open_aspas = 0
-line = 1
+line = 1 #verificar se n ta em comentário
 for ch in source:
     if ch == '\n':
         line+=1

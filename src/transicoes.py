@@ -12,7 +12,7 @@ def defTransicoes(name,text, finais):
     end = 0
     state =''
 
-
+    print(text)
     i=0    
     while i < len(text):
         if(text[i] == '"'):
@@ -110,10 +110,15 @@ def defTransicoes(name,text, finais):
         end=0
         i+=1
         aux=0
+    
+    
+    print('Rule 1.1')
+    print(rule1)
+    print('Rule 1.2')
+    print(rule1_2)
 
     rule1 +=rule1_2
     
-
 
 
 
