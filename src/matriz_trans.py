@@ -1,6 +1,7 @@
 import csv
 from src.trans_vazio import eliminaVazio
 from src.trans_nao_det import eliminaNaoDeterministica
+from src.trans_acess import eliminaNaoAcessivel
 from src.model import Estado, Transicao
 #o estado tem uma lista de transicoes atreladas a ele
 
@@ -9,10 +10,12 @@ def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)
     states = genEstados(array, finais)
     genMatrix(name,states, atoms)
-    states = eliminaVazio(name, states)
+    states = eliminaVazio(states)
     genMatrix('vazio_'+name, states,atoms)
-    states = eliminaNaoDeterministica(name, states)
+    states = eliminaNaoDeterministica(states)
     genMatrix('Nao_Deterministica_'+name, states,atoms)
+    states = eliminaNaoAcessivel(states)
+    genMatrix('Nao_Acessivel_'+name, states,atoms)
     return states
     
 def genEstados(array, finais): 

@@ -32,15 +32,15 @@ final = []
 # testeFinal = f.read()
 # f.close()
 
-# name = 'program'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# programStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# programFinal = f.read()
-# f.close()
-# states.append(programStates)
+name = 'program'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+programStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+programFinal = f.read()
+f.close()
+states.append(programStates)
 
 
 # name = 'factor'

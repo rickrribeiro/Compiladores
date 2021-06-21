@@ -1,7 +1,7 @@
 from src.helpers import getState
 
 
-def eliminaVazio(name, states):
+def eliminaVazio( states):
     for estado in states:
         aux = False
         

@@ -4,7 +4,7 @@ from src.model import Estado, Transicao
 # verificar em todas os estados se não tem nenhuma transicao para aquele estado antes de remover algum estado final
 
 
-def eliminaNaoDeterministica(name, states):
+def eliminaNaoDeterministica( states):
     
     for estado in states:     
 
