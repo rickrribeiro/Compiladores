@@ -35,7 +35,7 @@ def sintaticAnalyzer(source, symbols, states):
     passou = 0#p saber se passou em algum dos automatos
     for st in states: # lembrar de verificar cada automato, ver aonde cada um vai ser chamado, se é no \n. ai fazer um split no source no \n e fazer um foreach
        
-        passou = 0
+        
         valido = checaTrans(st, atomos, getState(st,0), 0)
         if valido == 1:
             passou = 1
