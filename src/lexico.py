@@ -9,22 +9,39 @@ def lexicalAnalyzer(source, symbols):
     source = source.replace('\n', '\n ')
     values = source.split(' ')
     
+
     aux = False
     source = '' #zera source p montar novamente botando os codigos
     line =1
     for v in values:
-      if '\n' in v:
+      alt= False
+      #conta a linha
+      if '\n' in v: 
+        v.replace('\n', '')
         line+=1
+      #verifica se faz parte da tabela de palavras e simbolos reservados  
       for sym in symbols:
         if sym[0].lower() == v.lower(): #pertence a tabela de simbolos e palavras
           v= sym[1]
           tabelaLexico(sym[0], line)
+          alt=True
+          source+=v+' '
           break
       
+      if alt:#verifica se foi alterado anteriormente
+        continue
+      
+      #verifica se é char
+      
+      #verifica se é string
+
+      #verifica se é integer number
+
+      #verifica se é float
+
+      #verifica se é identifier ou function
+      
       source+=v+' '
-  
-     
-    
     
     return source
     

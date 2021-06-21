@@ -32,15 +32,15 @@ final = []
 # testeFinal = f.read()
 # f.close()
 
-name = 'program'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-programStates = bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-programFinal = f.read()
-f.close()
-states.append(programStates)
+# name = 'program'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# programStates = bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# programFinal = f.read()
+# f.close()
+# states.append(programStates)
 
 
 # name = 'factor'
@@ -75,8 +75,26 @@ for ch in source:
        open_aspas +=1
 
 if open_aspas%2 == 1:
-    print('Aspas sem fechar na linha '+ str(line))
+    print('Aspas sem fechar na linha '+ str(line)) #Se quebrar por ter aspas simples dentro de aspas duplas, lembrar que no padrão da constant-string só tem alfa
     exit()
+
+#verifica se tem char e se char len ==1
+
+line = 1 
+i = 0
+open_aspas = False
+for ch in source:
+    if open_aspas == True:
+        i+=1
+    if ch == '\n':
+        line+=1
+    if ch == "'":
+        open_aspas = not open_aspas
+        if open_aspas==False:
+            i=0
+    if i>= 2:
+        print('Erro de aspas simples na linha '+ str(line)+'. Verifique se foram fechadas ou se você não está definindo uma string(utilizar aspas duplas)')
+        exit()
 #verifica se usa algum simbolo reservado da tabela
 i = 0
 line = 1

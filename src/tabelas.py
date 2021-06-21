@@ -58,8 +58,8 @@ def tabelaSimbolosPalavras():
     return tabela
 
 
+#'No. | Lexeme | Atomo | Tamanho | Tipo\n'
 simbolos = []
-
 def tabelaSimbolos(Lexeme, Tamanho, tipo): #tem as strings, variáveis, numeros inteiros, numeros float
     if len(simbolos)<1:
         num=1
