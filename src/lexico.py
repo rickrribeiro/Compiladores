@@ -1,21 +1,26 @@
 
 from src.helpers import isAlphabeticalChar, isReservedDigit
-
+from src.tabelas import tabelaLexico,tabelaSimbolos
 
 
 
 def lexicalAnalyzer(source, symbols):
     
-    source = source.replace('\n', ' ')
+    source = source.replace('\n', '\n ')
     values = source.split(' ')
     
     aux = False
     source = '' #zera source p montar novamente botando os codigos
+    line =1
     for v in values:
+      if '\n' in v:
+        line+=1
       for sym in symbols:
-        if sym[0].lower() == v.lower():
+        if sym[0].lower() == v.lower(): #pertence a tabela de simbolos e palavras
           v= sym[1]
+          tabelaLexico(sym[0], line)
           break
+      
       source+=v+' '
   
      

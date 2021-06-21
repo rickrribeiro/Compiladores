@@ -92,7 +92,7 @@ def tabelaLexico(Lexeme, linha):
     else:
         num= int(lexTable[-1][0])+1
     id_tb = 0#pra verificar se foi encontrado na tabela de simbolos e palavras, se n tiver sido encontrado ai busca na de simbolos
-    for sym in tabelaSimbolosPalavras:
+    for sym in tabelaSimbolosPalavras():
         if sym[0].lower() == Lexeme.lower():
           Atomo = sym[1]
           id_tb = '-'
