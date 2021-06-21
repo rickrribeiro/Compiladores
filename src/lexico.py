@@ -23,8 +23,12 @@ def lexicalAnalyzer(source, symbols):
         continue
       #verifica se faz parte da tabela de palavras e simbolos reservados  
       for sym in symbols:
-        if sym[0].lower() == v.lower(): #pertence a tabela de simbolos e palavras
-          v= sym[1]
+        cp = v
+        if sym[0].lower() == cp.replace('\n','').lower(): #pertence a tabela de simbolos e palavras
+          if '\n' in v:
+            v= sym[1]+'\n'
+          else:
+            v=sym[1]
           tabelaLexico(sym[0], line)
           alt=True
           source+=v+' '
@@ -37,7 +41,7 @@ def lexicalAnalyzer(source, symbols):
       if v[0]=="'":
         symb = tabelaSimbolos(v[1],1,'C05')
         tabelaLexico(v[1],line)
-        source+='C05 '
+        source+=symb+' '
         if '\n' in v:
           source+='\n'
         continue
@@ -46,13 +50,23 @@ def lexicalAnalyzer(source, symbols):
         aux = v.split('"')
         symb = tabelaSimbolos(aux[1],len(aux[1]),'C02')
         tabelaLexico(aux[1],line)
-        source+='C02 '
+        source+=symb+' '
         if '\n' in v:
           source+='\n'
         continue
-      #verifica se é integer number
-
-      #verifica se é float
+      #verifica se é integer number ou float
+      if v[0].isnumeric():
+        aux = v.split('.')
+        if len(aux)==1:
+          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C03')
+        else:
+          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C06')
+        tabelaLexico(v.replace('\n',''),line)
+        source+=symb+' '
+        if '\n' in v:
+          source+='\n'
+        continue
+     
 
       #verifica se é identifier ou function
       
