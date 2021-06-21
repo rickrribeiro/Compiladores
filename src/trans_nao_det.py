@@ -7,37 +7,16 @@ from src.model import Estado, Transicao
 def eliminaNaoDeterministica(name, states):
     
     for estado in states:     
-           
-        if len(estado.transicoes) > 1:
-            
-            for trans in estado.transicoes:
+
+        for trans in estado.transicoes:
+            if len(trans.finais) > 1:
                 newEstado = Estado(states [-1].estado + 1, estado.isFinal)
-                newEstado.transicoes.append(trans)
+                print(newEstado.estado)
+                for fin in trans.finais:
+                    newEstado.transicoes+=getState(states, fin).transicoes
+                trans.finais = []
+                trans.finais.append(newEstado.estado)
                 states.append(newEstado)
-
-                
-                for aux in states:
-                    
-                    for transaux in aux.transicoes:
-                        
-                        for fin in transaux.finais:
-                            print (states[1].estado)
-                            print ("fin " + str(fin))
-                            auxEstado = getState(states, fin)
-                            
-
-                            
-                            if auxEstado.estado == estado.estado:
-                                print ("teste")
-                                for tempTrans in auxEstado.transicoes:
-                                    
-                                    for finTemp in tempTrans.finais:
-                                        if finTemp == estado.estado:
-                                            finTemp = newEstado.estado
-                                           
-
-                                            
-                                            
-            states.remove(estado)
+        
     
     return states
