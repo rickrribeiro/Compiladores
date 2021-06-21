@@ -19,7 +19,9 @@ def eliminaVazio(name, states):
     
     return states
 
-    #checklist
+    # checklist
+
     # ve se tem transiçao em vazio
+    
     # se tiver transicao em vazio pega a lista de transicoes do atomo anterior
     

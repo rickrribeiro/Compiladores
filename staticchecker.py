@@ -23,14 +23,14 @@ f.close()
 
 states = []
 final = []
-# name = 'teste'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# testStates= bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# testeFinal = f.read()
-# f.close()
+name = 'teste'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+testStates= bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+testeFinal = f.read()
+f.close()
 
 name = 'program'
 f = open('txts\\wirth_'+name+'.txt', 'r')
@@ -65,30 +65,99 @@ f.close()
 states.append(statementStates)
 
 source = removeComments(source)
-#verifica se usa algum simbolo reservado da tabela
-i = 0
-line = 1
-for ch in source: #verificar se n ta dentro de uma string
-    if ch == '\n':
-        line+=1
-    if ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D':
-        if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
-            print(source[i]+source[i+1]+source[i+2]+"na linha "+str(line)+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
-            exit()
-    i+=1
-
 #verifica se tem aspas abertas
 open_aspas = 0
-line = 1 #verificar se n ta em comentário
+line = 1 
 for ch in source:
     if ch == '\n':
         line+=1
     if ch == '"':
        open_aspas +=1
-print("open aspas = "+ str(open_aspas)) 
+
 if open_aspas%2 == 1:
     print('Aspas sem fechar na linha '+ str(line))
     exit()
+#verifica se usa algum simbolo reservado da tabela
+i = 0
+line = 1
+open_aspas = False
+for ch in source: #verificar se n ta dentro de uma string
+    if ch == '\n':
+        line+=1
+    elif ch == '"':
+        open_aspas= not open_aspas
+    elif (ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D') and open_aspas == False:
+        if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
+            print(source[i]+source[i+1]+source[i+2]+"na linha "+str(line)+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
+            exit()
+    i+=1
+
+#verifica se fecha parentesis
+i = 0
+line = 1
+line_open = 0
+open_aspas = False
+pr = 0
+for ch in source: #verificar se n ta dentro de uma string
+    if ch == '\n':
+        line+=1
+    if pr == 0:
+        line_open = line
+    if ch == '"':
+        open_aspas= not open_aspas
+    elif (ch == '(') and open_aspas == False:
+        pr+=1
+    elif (ch == ')') and open_aspas == False:
+        pr-=1
+    
+if pr !=0:
+    print("parêntesis na linha "+str(line_open)+" deve ser fechado!")
+    exit()
+
+#verifica se fecha colchetes
+i = 0
+line = 1
+line_open = 0
+open_aspas = False
+pr = 0
+for ch in source: #verificar se n ta dentro de uma string
+    if ch == '\n':
+        line+=1
+    if pr == 0:
+        line_open = line
+    if ch == '"':
+        open_aspas= not open_aspas
+    elif (ch == '[') and open_aspas == False:
+        pr+=1
+    elif (ch == ']') and open_aspas == False:
+        pr-=1
+    
+if pr !=0:
+    print("Colchetes na linha "+str(line_open)+" deve ser fechado!")
+    exit()
+
+#verifica se fecha chaves
+i = 0
+line = 1
+line_open = 0
+open_aspas = False
+pr = 0
+for ch in source: #verificar se n ta dentro de uma string
+    if ch == '\n':
+        line+=1
+    if pr == 0:
+        line_open = line
+    if ch == '"':
+        open_aspas= not open_aspas
+    elif (ch == '{') and open_aspas == False:
+        pr+=1
+    elif (ch == '}') and open_aspas == False:
+        pr-=1
+    
+if pr !=0:
+    print("Chaves na linha "+str(line_open)+" deve ser fechado!")
+    exit()
+
 #analisador lexico
 result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(result)    
@@ -102,12 +171,10 @@ f = open(filename[0]+'.TAB', 'w+')
 f.write(str(tabelaSimbolos(None)))
 f.close
 
-#Tem que ver oq faz com esses factors
+# remover recursoes
 #(226, 'factor', 228),
 # E pq o (349, 'Integer-Number', 350) a 350 não tem nenhuma transição começando c ela, sendo que ela n é final
-# E pq statement n tem transição no 1
-#tem que verificar a estrutura na tabela de simbolos, ver oq precisa botar. Por enquanto só ta feito p adicionar o valor
-#usa esses sources p testar
+
 
 result = sintaticAnalyzer(source, tabelaSimbolosPalavras(), states)#passa tabela de simbolos com none quando n quer adicionar um novo   
     
