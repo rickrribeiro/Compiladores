@@ -1,5 +1,6 @@
 import csv
 from src.trans_vazio import eliminaVazio
+from src.trans_nao_det import eliminaNaoDeterministica
 #o estado tem uma lista de transicoes atreladas a ele
 class Estado:
     def __init__(self, init,final):
@@ -18,6 +19,8 @@ def genMatrizes(name,array, finais):
     genMatrix(name,states, atoms)
     states = eliminaVazio(name, states)
     genMatrix('vazio_'+name, states,atoms)
+    states = eliminaNaoDeterministica(name, states)
+    genMatrix('Nao_Deterministica_'+name, states,atoms)
     return states
     
 def genEstados(array, finais): 

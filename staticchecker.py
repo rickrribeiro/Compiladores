@@ -23,14 +23,14 @@ f.close()
 
 states = []
 final = []
-name = 'teste'
-f = open('txts\\wirth_'+name+'.txt', 'r')
-text = f.read()
-f.close()
-testStates= bpontos(name, text)
-f = open('txts\\estado_final_'+name+'.txt', 'r')
-testeFinal = f.read()
-f.close()
+# name = 'teste'
+# f = open('txts\\wirth_'+name+'.txt', 'r')
+# text = f.read()
+# f.close()
+# testStates= bpontos(name, text)
+# f = open('txts\\estado_final_'+name+'.txt', 'r')
+# testeFinal = f.read()
+# f.close()
 
 name = 'program'
 f = open('txts\\wirth_'+name+'.txt', 'r')

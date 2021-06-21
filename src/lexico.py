@@ -1,3 +1,4 @@
+
 from src.helpers import isAlphabeticalChar, isReservedDigit
 def lexicalAnalyzer(source, symbols):
     
@@ -36,3 +37,5 @@ def lexicalAnalyzer(source, symbols):
     # 4. verificar comentarios (check)
     # 5. verificar se as barras de comentarios, atomos ex: float e atomos simbolos ex: ( nao estao no meio de uma string
     # 6. verificar atomos juntos, ex (True)
+
+    #LEMBRAR DE DESCOMENTAR SINTATICO E AUTOMATOS

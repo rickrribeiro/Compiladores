@@ -1,6 +1,5 @@
-from os import remove
 from src.helpers import getState
-from src.trans_nao_det import eliminaNaoDeterministica
+
 
 def eliminaVazio(name, states):
     for estado in states:
