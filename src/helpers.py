@@ -18,9 +18,12 @@ def countFinal(states,id): #conta quantas transições tem para esse estado (se 
 def removeComments(source):
   text=''
   i = 0 
+  open_aspas = False
   while i < len(source):
     #print(i)
-    if source[i]=='/':
+    if source[i] == '"':
+      open_aspas = not open_aspas
+    if source[i]=='/' and not open_aspas:
       if source[i+1]== '*':
         i+=2
         while i < len(source):

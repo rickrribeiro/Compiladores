@@ -4,7 +4,7 @@ a += 11
 a(True)
 {}
 []
-"A01"
+"/*A01//aa"
 //A01
 // batata
 return 10
