@@ -159,8 +159,8 @@ if pr !=0:
     exit()
 
 #analisador lexico
-result = lexicalAnalyzer(source, tabelaSimbolosPalavras())
-print(result)    
+source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
+print(source)    
 
 
 filename = sys.argv[1].split('.201')
