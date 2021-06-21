@@ -56,6 +56,10 @@ def lexicalAnalyzer(source, symbols):
         continue
       #verifica se é integer number ou float
       if v[0].isnumeric():
+        for ch in v:
+          if ch.isnumeric() == False and ch != '.' and ch !='\n':
+            print("simbolo "+v+" na linha "+str(line)+" não é reconhecido na linguagem!")
+            exit()
         aux = v.split('.')
         if len(aux)==1:
           symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C03')
@@ -68,10 +72,19 @@ def lexicalAnalyzer(source, symbols):
         continue
      
 
-      #verifica se é identifier ou function
-      
-      source+=v+' '
-    
+      #verifica se é identifier ou function e se é membro da linguagem
+      for ch in v:
+        if ((ord(ch)<ord('a') or ord(ch)>ord('z')) and (ord(ch)<ord('A') or ord(ch)>ord('Z'))) and ch != '_' and ch !='\n' and ch.isnumeric()==False:
+          print("simbolo "+v+" na linha "+str(line)+" não é reconhecido na linguagem!")
+          exit()
+      if v == '\n':
+        source+='\n'
+        continue
+      symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C01')
+      tabelaLexico(v.replace('\n',''),line)
+      source+=symb+' '
+      if '\n' in v:
+          source+='\n'
     return source
     
     
