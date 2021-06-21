@@ -9,24 +9,25 @@ def eliminaNaoDeterministica(name, states):
     for estado in states:     
            
         if len(estado.transicoes) > 1:
-            newEstado = Estado
-            newEstado.transicoes = estado.transicoes
-            newEstado.isFinal = estado.isFinal
-            newEstado.estado = states[-1].estado + 1
-            states.append(newEstado)
-            for aux in states:
-               
-                for transaux in aux.transicoes:
-                    for fin in transaux.finais:
-                        auxEstado = getState(states, fin)
-                        
-                        if auxEstado == estado.estado:
-                            auxEstado.transicoes
-                            for tempTrans in auxEstado.transicoes:
-                                for finTemp in tempTrans.finais:
-                                    if finTemp == estado.estado:
-                                        finTemp = newEstado.estado
-                                        
+            
+            for trans in estado.transicoes:
+                newEstado = Estado(estado.estado, states [-1].estado + 1)
+                newEstado.transicoes.append(trans)
+                states.append(newEstado)
+                for aux in states:
+                
+                    for transaux in aux.transicoes:
+                        for fin in transaux.finais:
+                            auxEstado = getState(states, fin)
+                            
+                            if auxEstado == estado.estado:
+                                auxEstado.transicoes
+                                for tempTrans in auxEstado.transicoes:
+                                    for finTemp in tempTrans.finais:
+                                        if finTemp == estado.estado:
+                                            finTemp = newEstado.estado
+                                            
+                                            
             states.remove(estado)
     
     return states
