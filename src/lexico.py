@@ -14,6 +14,8 @@ def lexicalAnalyzer(source, symbols):
     source = '' #zera source p montar novamente botando os codigos
     line =1
     for v in values:
+      if len(str(v)) > 30:
+        v= v[:30]
       alt= False
       #conta a linha
       if '\n' in v: 
@@ -80,6 +82,7 @@ def lexicalAnalyzer(source, symbols):
       if v == '\n':
         source+='\n'
         continue
+      
       symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C01',line)
       tabelaLexico(v.replace('\n',''))
       source+=symb+' '

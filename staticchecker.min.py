@@ -5,7 +5,7 @@ from src.bota_ponto import bpontos
 import sys
 from src.tabelas import getTabelaLexico, tabelaSimbolos, tabelaSimbolosPalavras, getTabelaSimbolos
 from src.helpers import removeComments
-
+from sys import exit
 
 if len(sys.argv)!= 2:
     print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')

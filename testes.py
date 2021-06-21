@@ -8,3 +8,6 @@ print(len(a))
 a='"abcd"'
 b = a.split('"')
 print(b)
+
+c= 'aaaaaaaaaassssssssssdddddddddeeeeeeeeeee'
+print(c[:30])
