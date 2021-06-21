@@ -29,7 +29,7 @@ def lexicalAnalyzer(source, symbols):
             v= sym[1]+'\n'
           else:
             v=sym[1]
-          tabelaLexico(sym[0], line)
+          tabelaLexico(sym[0])
           alt=True
           source+=v+' '
           break
@@ -39,8 +39,8 @@ def lexicalAnalyzer(source, symbols):
       
       #verifica se é char
       if v[0]=="'":
-        symb = tabelaSimbolos(v[1],1,'C05')
-        tabelaLexico(v[1],line)
+        symb = tabelaSimbolos(v[1],1,'C05',line)
+        tabelaLexico(v[1])
         source+=symb+' '
         if '\n' in v:
           source+='\n'
@@ -48,8 +48,8 @@ def lexicalAnalyzer(source, symbols):
       #verifica se é string
       if v[0]=='"':
         aux = v.split('"')
-        symb = tabelaSimbolos(aux[1],len(aux[1]),'C02')
-        tabelaLexico(aux[1],line)
+        symb = tabelaSimbolos(aux[1],len(aux[1]),'C02',line)
+        tabelaLexico(aux[1])
         source+=symb+' '
         if '\n' in v:
           source+='\n'
@@ -62,10 +62,10 @@ def lexicalAnalyzer(source, symbols):
             exit()
         aux = v.split('.')
         if len(aux)==1:
-          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C03')
+          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C03',line)
         else:
-          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C06')
-        tabelaLexico(v.replace('\n',''),line)
+          symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C06',line)
+        tabelaLexico(v.replace('\n',''))
         source+=symb+' '
         if '\n' in v:
           source+='\n'
@@ -80,8 +80,8 @@ def lexicalAnalyzer(source, symbols):
       if v == '\n':
         source+='\n'
         continue
-      symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C01')
-      tabelaLexico(v.replace('\n',''),line)
+      symb = tabelaSimbolos(v.replace('\n',''),len(str(v)),'C01',line)
+      tabelaLexico(v.replace('\n',''))
       source+=symb+' '
       if '\n' in v:
           source+='\n'

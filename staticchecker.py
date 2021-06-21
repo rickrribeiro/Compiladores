@@ -187,19 +187,20 @@ source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 
 
 filename = sys.argv[1].split('.201')
+
 f = open(filename[0]+'.LEX', 'w+')
-f.write('No. | Lexeme | Atomo | QT. | Linhas | ID Tabela\n') #botar - id tabela qnd for ta tabela e simbolos e palavras
+f.write('No. | Lexeme | Atomo | ID Tabela\n') #botar - id tabela qnd for ta tabela e simbolos e palavras
 for simb in getTabelaLexico():
-    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4])+ ' | '+str(simb[5])))
     f.write('\n')
+    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])))
 f.close()
 
 
 f = open(filename[0]+'.TAB', 'w+')
-f.write('No. | Lexeme | Atomo | Tamanho | Tipo\n')
+f.write('No. | Lexeme | Atomo | Tamanho | Tipo | QT. Aparicoes | Linhas \n')
 for simb in getTabelaSimbolos():
-    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4])))
     f.write('\n')
+    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4]) +'| ' +str(simb[5])+'| ' +str(simb[6])))
 f.close()
 
 # remover recursoes
