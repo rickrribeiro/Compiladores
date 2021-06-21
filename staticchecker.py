@@ -3,7 +3,7 @@ from src.lexico import lexicalAnalyzer
 from src.sintatico import sintaticAnalyzer
 from src.bota_ponto import bpontos
 import sys
-from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras
+from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras, getTabelaSimbolos
 from src.helpers import removeComments
 
 
@@ -168,7 +168,9 @@ f = open(filename[0]+'.LEX', 'w+')
 f.write(source)
 f.close
 f = open(filename[0]+'.TAB', 'w+')
-f.write(str(tabelaSimbolos(None)))
+for simb in getTabelaSimbolos():
+    f.write(str(simb))
+    f.write('\n')
 f.close
 
 # remover recursoes

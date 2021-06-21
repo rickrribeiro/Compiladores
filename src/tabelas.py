@@ -59,7 +59,16 @@ def tabelaSimbolosPalavras():
 
 
 simbolos = []
-def tabelaSimbolos(simb): #tem as strings, variáveis, numeros inteiros, numeros float
-    if simb != None:
-        simbolos.append(simb)
+simbolos.append('No. | Lexeme | Atomo | Tamanho | Tipo')
+
+def tabelaSimbolos(Lexeme, Atomo, Tamanho, tipo): #tem as strings, variáveis, numeros inteiros, numeros float
+    if len(simbolos)<=1:
+        num=1
+    else:
+        num= int(simbolos[-1][0])+1
+    simbolos.append(str(num) + ' | '+str(Lexeme)+' | '+str(Atomo)+' | '+ str(Tamanho)+ ' | '+str(tipo))
+    num += 1
+    return simbolos
+
+def getTabelaSimbolos():
     return simbolos
