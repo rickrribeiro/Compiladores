@@ -11,7 +11,7 @@ def eliminaNaoDeterministica(name, states):
         if len(estado.transicoes) > 1:
             
             for trans in estado.transicoes:
-                newEstado = Estado(estado.estado, states [-1].estado + 1)
+                newEstado = Estado(states [-1].estado + 1, estado.isFinal)
                 newEstado.transicoes.append(trans)
                 states.append(newEstado)
                 for aux in states:
