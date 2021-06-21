@@ -72,7 +72,7 @@ def tabelaSimbolos(Lexeme, Tamanho, tipo): #tem as strings, variáveis, numeros 
             atomo='E'+str(num)
     simbolos.append([num,Lexeme, atomo, Tamanho,tipo])
     
-    return simbolos
+    return atomo
 
 def getTabelaSimbolos():
     return simbolos

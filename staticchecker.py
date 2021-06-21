@@ -68,14 +68,14 @@ source = removeComments(source)
 #verifica se tem aspas abertas
 open_aspas = 0
 line = 1 
-for ch in source:
+for ch in source: #verificar se é uma string vazia
     if ch == '\n':
         line+=1
     if ch == '"':
        open_aspas +=1
 
 if open_aspas%2 == 1:
-    print('Aspas sem fechar na linha '+ str(line)) #Se quebrar por ter aspas simples dentro de aspas duplas, lembrar que no padrão da constant-string só tem alfa
+    print('Aspas sem fechar na linha '+ str(line)) 
     exit()
 
 #verifica se tem char e se char len ==1
@@ -83,6 +83,7 @@ if open_aspas%2 == 1:
 line = 1 
 i = 0
 open_aspas = False
+#Se quebrar por ter aspas simples dentro de aspas duplas, lembrar que no padrão da constant-string só tem alfa
 for ch in source:
     if open_aspas == True:
         i+=1
@@ -91,6 +92,9 @@ for ch in source:
     if ch == "'":
         open_aspas = not open_aspas
         if open_aspas==False:
+            if(i==1):
+                print('Erro de aspas simples na linha '+ str(line)+'. Atribua um valor para o caracter!')
+                exit()
             i=0
     if i>= 2:
         print('Erro de aspas simples na linha '+ str(line)+'. Verifique se foram fechadas ou se você não está definindo uma string(utilizar aspas duplas)')
@@ -181,8 +185,7 @@ source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(source)    
 
 #para testes, remover dps
-tabelaSimbolos('abc',12,'INT')
-tabelaSimbolos('abc',13,'INT')
+
 
 filename = sys.argv[1].split('.201')
 f = open(filename[0]+'.LEX', 'w+')

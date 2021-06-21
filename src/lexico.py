@@ -17,8 +17,10 @@ def lexicalAnalyzer(source, symbols):
       alt= False
       #conta a linha
       if '\n' in v: 
-        v.replace('\n', '')
+        # v.replace('\n', '')
         line+=1
+      if len(v)==0:
+        continue
       #verifica se faz parte da tabela de palavras e simbolos reservados  
       for sym in symbols:
         if sym[0].lower() == v.lower(): #pertence a tabela de simbolos e palavras
@@ -32,7 +34,13 @@ def lexicalAnalyzer(source, symbols):
         continue
       
       #verifica se é char
-      
+      if v[0]=="'":
+        symb = tabelaSimbolos(v[1],1,'C05')
+        tabelaLexico(v[1],line)
+        source+='C05 '
+        if '\n' in v:
+          source+='\n'
+        continue
       #verifica se é string
 
       #verifica se é integer number
