@@ -1,3 +1,8 @@
+E-02
+Ricardo Ramos Ribeiro | ricardo.r@aln.senaicimatec.edu.br - 71 996820764 
+Hercules Mosley de Araujo Pinheiro Leonel | hercules.leonel@aln.senaicimatec.edu.br - 71 999207259 
+
+E-02
 No. | Lexeme | Atomo | ID Tabela
 
 1 | while | A03 | -

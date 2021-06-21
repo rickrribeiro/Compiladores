@@ -189,6 +189,10 @@ source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 filename = sys.argv[1].split('.201')
 
 f = open(filename[0]+'.LEX', 'w+')
+f.write('E-02\n')
+f.write('Ricardo Ramos Ribeiro | ricardo.r@aln.senaicimatec.edu.br - 71 996820764 \n')
+f.write('Hercules Mosley de Araujo Pinheiro Leonel | hercules.leonel@aln.senaicimatec.edu.br - 71 999207259 \n\n')
+
 f.write('No. | Lexeme | Atomo | ID Tabela\n') #botar - id tabela qnd for ta tabela e simbolos e palavras
 for simb in getTabelaLexico():
     f.write('\n')
