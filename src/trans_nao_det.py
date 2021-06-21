@@ -14,18 +14,28 @@ def eliminaNaoDeterministica(name, states):
                 newEstado = Estado(states [-1].estado + 1, estado.isFinal)
                 newEstado.transicoes.append(trans)
                 states.append(newEstado)
-                for aux in states:
+
                 
+                for aux in states:
+                    
                     for transaux in aux.transicoes:
+                        
                         for fin in transaux.finais:
+                            print (states[1].estado)
+                            print ("fin " + str(fin))
                             auxEstado = getState(states, fin)
                             
-                            if auxEstado == estado.estado:
-                                auxEstado.transicoes
+
+                            
+                            if auxEstado.estado == estado.estado:
+                                print ("teste")
                                 for tempTrans in auxEstado.transicoes:
+                                    
                                     for finTemp in tempTrans.finais:
                                         if finTemp == estado.estado:
                                             finTemp = newEstado.estado
+                                           
+
                                             
                                             
             states.remove(estado)
