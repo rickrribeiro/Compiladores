@@ -61,6 +61,9 @@ def tabelaSimbolosPalavras():
 #'No. | Lexeme | Atomo | Tamanho | Tipo\n'
 simbolos = []
 def tabelaSimbolos(Lexeme, Tamanho, tipo): #tem as strings, variáveis, numeros inteiros, numeros float
+    for sb in simbolos:
+        if sb[1] == Lexeme:
+            return sb[2]
     if len(simbolos)<1:
         num=1
         atomo = 'E01'

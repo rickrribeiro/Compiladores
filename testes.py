@@ -5,3 +5,6 @@ print(a[:1])
 print(a[1:])
 a='\n'
 print(len(a))
+a='"abcd"'
+b = a.split('"')
+print(b)

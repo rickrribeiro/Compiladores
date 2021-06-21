@@ -42,7 +42,14 @@ def lexicalAnalyzer(source, symbols):
           source+='\n'
         continue
       #verifica se é string
-
+      if v[0]=='"':
+        aux = v.split('"')
+        symb = tabelaSimbolos(aux[1],len(aux[1]),'C02')
+        tabelaLexico(aux[1],line)
+        source+='C02 '
+        if '\n' in v:
+          source+='\n'
+        continue
       #verifica se é integer number
 
       #verifica se é float
