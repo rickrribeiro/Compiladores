@@ -36,7 +36,7 @@ def lexicalAnalyzer(source, symbols):
     # 
     # checklist
     # 1. (check) verificar atomos 
-    # 2. Verificar atomos contidos em outros ex: <= não é < e = -> olha o reserved digit e ve se ele+1 é =
+    # 2. (check) Verificar atomos contidos em outros ex: <= não é < e = -> olha o reserved digit e ve se ele+1 é =
     # 3. verificar os atomos da tablea C ex: constant-string, integer-number, etc...
     # 4. (check) verificar comentarios 
     # 5. (check) verificar se as barras de comentarios, atomos ex: float e atomos simbolos ex: ( nao estao no meio de uma string 

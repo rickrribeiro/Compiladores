@@ -59,16 +59,48 @@ def tabelaSimbolosPalavras():
 
 
 simbolos = []
-simbolos.append('No. | Lexeme | Atomo | Tamanho | Tipo')
 
-def tabelaSimbolos(Lexeme, Atomo, Tamanho, tipo): #tem as strings, variáveis, numeros inteiros, numeros float
-    if len(simbolos)<=1:
+def tabelaSimbolos(Lexeme, Tamanho, tipo): #tem as strings, variáveis, numeros inteiros, numeros float
+    if len(simbolos)<1:
         num=1
+        atomo = 'E01'
     else:
         num= int(simbolos[-1][0])+1
-    simbolos.append(str(num) + ' | '+str(Lexeme)+' | '+str(Atomo)+' | '+ str(Tamanho)+ ' | '+str(tipo))
-    num += 1
+        if(num<10):
+            atomo='E0'+str(num)
+        else:
+            atomo='E'+str(num)
+    simbolos.append([num,Lexeme, atomo, Tamanho,tipo])
+    
     return simbolos
 
 def getTabelaSimbolos():
     return simbolos
+
+
+
+#No. | Lexeme | Atomo | QT. | Linhas | ID Tabela
+lexTable = []
+def tabelaLexico(Lexeme, linha): 
+    if len(lexTable)<1:
+        num=1
+    else:
+        num= int(lexTable[-1][0])+1
+    id_tb = 0#pra verificar se foi encontrado na tabela de simbolos e palavras, se n tiver sido encontrado ai busca na de simbolos
+    for sym in tabelaSimbolosPalavras:
+        if sym[0].lower() == Lexeme.lower():
+          Atomo = sym[1]
+          id_tb = '-'
+          break
+    if id_tb == 0: #busca na tabela de simbolos
+        for sym in simbolos:
+            if sym[1].lower() == Lexeme.lower():
+                Atomo = sym[2]
+                id_tb = sym[0]
+                break
+    lexTable.append([num,Lexeme, Atomo, 1 ,[linha],id_tb]) #verificar antes se ja tem
+    
+    return lexTable
+
+def getTabelaLexico():
+    return lexTable

@@ -1,17 +1,9 @@
 import csv
 from src.trans_vazio import eliminaVazio
 from src.trans_nao_det import eliminaNaoDeterministica
+from src.model import Estado, Transicao
 #o estado tem uma lista de transicoes atreladas a ele
-class Estado:
-    def __init__(self, init,final):
-        self.estado = init #valor do estado
-        self.isFinal = final
-        self.transicoes = [] #lista de transições
-    
-class Transicao:
-    def __init__(self, atomo):
-        self.atomo = atomo #atomo da transição
-        self.finais = [] #estados finais da transição
+
 
 def genMatrizes(name,array, finais):
     atoms = set(e[1] for e in array)

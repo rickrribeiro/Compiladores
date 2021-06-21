@@ -32,15 +32,15 @@ final = []
 # testeFinal = f.read()
 # f.close()
 
-# name = 'program'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# programStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# programFinal = f.read()
-# f.close()
-# states.append(programStates)
+name = 'program'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+programStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+programFinal = f.read()
+f.close()
+states.append(programStates)
 
 
 # name = 'factor'
@@ -86,7 +86,7 @@ for ch in source: #verificar se n ta dentro de uma string
         line+=1
     elif ch == '"':
         open_aspas= not open_aspas
-    elif (ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D') and open_aspas == False:
+    elif (ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D' or ch == 'E') and open_aspas == False:
         if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
             print(source[i]+source[i+1]+source[i+2]+"na linha "+str(line)+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
             exit()
@@ -162,14 +162,21 @@ if pr !=0:
 source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 print(source)    
 
+#para testes, remover dps
+tabelaSimbolos('abc',12,'INT')
+tabelaSimbolos('abc',13,'INT')
 
 filename = sys.argv[1].split('.201')
 f = open(filename[0]+'.LEX', 'w+')
+f.write('No. | Lexeme | Atomo | QT. | Linhas | ID Tabela\n') #botar - id tabela qnd for ta tabela e simbolos e palavras
 f.write(source)
 f.close
+
+
 f = open(filename[0]+'.TAB', 'w+')
+f.write('No. | Lexeme | Atomo | Tamanho | Tipo\n')
 for simb in getTabelaSimbolos():
-    f.write(str(simb))
+    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4])))
     f.write('\n')
 f.close
 
