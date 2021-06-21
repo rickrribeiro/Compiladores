@@ -7,36 +7,19 @@ def converteAtomo(atomo, symbols):
                 atomo[i] = sy[0]
     return atomo
 
-def checaTrans(atomo, states, idx, start):
-
-    
-    
+def checaTrans(states, atomo, state, idx):
+    if idx+1 >= len(atomo):
+        if state.isFinal == True:
+            return 1
         
-    for aux in states[0]:
-        
-        for trans in aux.transicoes:
-            
-            if (atomo[idx-1] == trans.atomo and aux.estado == 0) or (start == True and aux.estado != 0):
-
-                for fin in trans.finais:
-                    estadoatu = getState(states[0], fin)
-                    for trans2 in estadoatu.transicoes:
-                        if atomo[idx] == trans2.atomo:
-                            print (trans2.atomo)
-                            for fin2 in trans2.finais:
-                                if getState(states[0], fin2).isFinal == True:
-                                    valido = idx
-                                    start = False
-                                    return valido
-                            
-                            idx+=1
-                            start = True
-                            valido = 0
-                            checaTrans(atomo, states, idx, start)
-                            
-                            print (valido)
-                            return valido
-            
+    for trans in state.transicoes:
+        try:
+            if trans.atomo.lower() == atomo[idx].lower():  
+                for fin in trans.finais:  
+                    return checaTrans(states, atomo, getState(states, fin), idx+1)
+        except:
+            return 0
+    return 0    
 
                                 
                        
@@ -44,24 +27,24 @@ def checaTrans(atomo, states, idx, start):
 
 def sintaticAnalyzer(source, symbols, states):
 
-    source = "A02 A10 C09 B12 C03 B12 A01 AB01 C02"
-    idx = 1
-    valido = -1
-    #print(states[0][15].transicoes[0].atomo)
+    source = "A02 A07 C01 A16"
 
-
-    
-    atomo = source.split(' ')
-    atomo = converteAtomo(atomo, symbols)
-    for at in atomo:
-        valido = checaTrans(atomo, states, idx, start = False)
-        if valido == 0:
-            print("Invalido")
-            break
-        elif valido == -1:
-            valido = 0
-        else:
-            checaTrans(atomo, states, idx, start = False)              
+    atomos = source.split(' ')
+    atomos = converteAtomo(atomos, symbols)
+    print(atomos)
+    passou = 0#p saber se passou em algum dos automatos
+    for st in states: # lembrar de verificar cada automato, ver aonde cada um vai ser chamado, se é no \n. ai fazer um split no source no \n e fazer um foreach
+       
+        passou = 0
+        valido = checaTrans(st, atomos, getState(st,0), 0)
+        if valido == 1:
+            passou = 1
+        
+    if passou == 1:
+        print('Válido!')
+    else:
+        print('Inválido!')
+                    
                     
     
     return source

@@ -16,7 +16,7 @@ def eliminaNaoAcessivel( states):
                     if fn == st.estado:
                         tem=True
         if tem == False:
-            print(st.estado)
+            # print(st.estado)
             states.remove(st)
    
     return states
