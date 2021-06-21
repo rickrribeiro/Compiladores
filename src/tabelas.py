@@ -82,6 +82,11 @@ def getTabelaSimbolos():
 #No. | Lexeme | Atomo | QT. | Linhas | ID Tabela
 lexTable = []
 def tabelaLexico(Lexeme, linha): 
+    for it in lexTable: #verifica se ja tem na lextable
+        if it[1].lower() == Lexeme.lower():
+            it[3]+=1
+            it[4].append(linha)
+            return
     if len(lexTable)<1:
         num=1
     else:
@@ -100,7 +105,7 @@ def tabelaLexico(Lexeme, linha):
                 break
     lexTable.append([num,Lexeme, Atomo, 1 ,[linha],id_tb]) #verificar antes se ja tem
     
-    return lexTable
+    
 
 def getTabelaLexico():
     return lexTable

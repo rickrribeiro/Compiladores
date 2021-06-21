@@ -3,7 +3,7 @@ from src.lexico import lexicalAnalyzer
 from src.sintatico import sintaticAnalyzer
 from src.bota_ponto import bpontos
 import sys
-from src.tabelas import tabelaSimbolos, tabelaSimbolosPalavras, getTabelaSimbolos
+from src.tabelas import getTabelaLexico, tabelaSimbolos, tabelaSimbolosPalavras, getTabelaSimbolos
 from src.helpers import removeComments
 
 
@@ -43,26 +43,26 @@ f.close()
 states.append(programStates)
 
 
-# name = 'factor'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# factorStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# factorFinal = f.read()
-# f.close()
-# states.append(factorStates)
+name = 'factor'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+factorStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+factorFinal = f.read()
+f.close()
+states.append(factorStates)
 
 
-# name = 'statement'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# statementStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# statementFinal = f.read()
-# f.close()
-# states.append(statementStates)
+name = 'statement'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+statementStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+statementFinal = f.read()
+f.close()
+states.append(statementStates)
 
 source = removeComments(source)
 #verifica se tem aspas abertas
@@ -169,8 +169,10 @@ tabelaSimbolos('abc',13,'INT')
 filename = sys.argv[1].split('.201')
 f = open(filename[0]+'.LEX', 'w+')
 f.write('No. | Lexeme | Atomo | QT. | Linhas | ID Tabela\n') #botar - id tabela qnd for ta tabela e simbolos e palavras
-f.write(source)
-f.close
+for simb in getTabelaLexico():
+    f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4])+ ' | '+str(simb[5])))
+    f.write('\n')
+f.close()
 
 
 f = open(filename[0]+'.TAB', 'w+')
@@ -178,7 +180,7 @@ f.write('No. | Lexeme | Atomo | Tamanho | Tipo\n')
 for simb in getTabelaSimbolos():
     f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4])))
     f.write('\n')
-f.close
+f.close()
 
 # remover recursoes
 #(226, 'factor', 228),
