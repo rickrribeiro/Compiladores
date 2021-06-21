@@ -42,27 +42,26 @@ programFinal = f.read()
 f.close()
 states.append(programStates)
 
+name = 'factor'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+factorStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+factorFinal = f.read()
+f.close()
+states.append(factorStates)
 
-# name = 'factor'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# factorStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# factorFinal = f.read()
-# f.close()
-# states.append(factorStates)
 
-
-# name = 'statement'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# statementStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# statementFinal = f.read()
-# f.close()
-# states.append(statementStates)
+name = 'statement'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+statementStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+statementFinal = f.read()
+f.close()
+states.append(statementStates)
 
 source = removeComments(source)
 #verifica se tem aspas abertas
