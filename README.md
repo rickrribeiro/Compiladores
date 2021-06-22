@@ -21,5 +21,6 @@ setup.py - arquivo para gerar o EXE<br>
 testes.py - arquivo fora do projeto para fazer testes<br>
 staticchecker.py - main do projeto que vai desde a formação do automato até o fim<br>
 staticchecker.min.py - main do projeto que faz apenas a análise léxica<br>
+<br>
 observação ><br>
     Precisa ser utilizado espaço ou \n como delimitadores. ex: (TRUE) não será aceito, o correto seria ( TRUE )<br>
