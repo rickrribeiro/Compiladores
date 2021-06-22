@@ -1,22 +1,32 @@
-from os import stat
+
 from src.lexico import lexicalAnalyzer
 from src.sintatico import sintaticAnalyzer
 from src.bota_ponto import bpontos
-import sys
 from src.tabelas import getTabelaLexico, tabelaSimbolos, tabelaSimbolosPalavras, getTabelaSimbolos
 from src.helpers import removeComments
 from sys import exit
 
-if len(sys.argv)!= 2:
-    print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
-try:
+# if len(sys.argv)!= 2:
+#     print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
+# try:
 
-    if(len(sys.argv[1].split('.201'))!= 2):
-        f = open(sys.argv[1]+'.201', 'r')
+#     if(len(nameFile.split('.201'))!= 2):
+#         f = open(nameFile+'.201', 'r')
+#     else:
+#         f = open(nameFile, 'r')
+# except:
+#     print('Código fonte não encontrado!')
+#     exit()
+
+try:
+    nameFile = input('Digite o nome do arquivo:')
+    if(len(nameFile.split('.201'))!= 2):
+        f = open(nameFile+'.201', 'r')
     else:
-        f = open(sys.argv[1], 'r')
+        f = open(nameFile, 'r')
 except:
     print('Código fonte não encontrado!')
+    input()
     exit()
 source = f.read()
 f.close()
@@ -35,6 +45,7 @@ final = []
 
 
 source = removeComments(source)
+
 #verifica se tem aspas abertas
 open_aspas = 0
 line = 1 
@@ -157,7 +168,7 @@ source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 #para testes, remover dps
 
 
-filename = sys.argv[1].split('.201')
+filename = nameFile.split('.201')
 
 f = open(filename[0]+'.LEX', 'w+')
 f.write('E-02\n')
@@ -177,11 +188,10 @@ for simb in getTabelaSimbolos():
     f.write('\n')
     f.write(str(str(simb[0]) + ' | '+str(simb[1])+' | '+str(simb[2])+' | '+ str(simb[3])+ ' | '+str(simb[4]) +'| ' +str(simb[5])+'| ' +str(simb[6])))
 f.close()
-
+print("Terminou")
 # remover recursoes
 #(226, 'factor', 228),
 # E pq o (349, 'Integer-Number', 350) a 350 não tem nenhuma transição começando c ela, sendo que ela n é final
 
 
-
-
+input()

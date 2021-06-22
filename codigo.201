@@ -1,27 +1,3 @@
-while true 
-int a = 10
-a ! != 11
-b = 11.12
-aux2 = 11.12
-aux = 11.13
-a ( True )
-{ }
-[ ]
-'c'
-//''
-"/*A01//aa"
-"/*A01//aa"
-//A01
-// batata
-return 10
-return 11
-/*
-while true */
-
-/*
-while true
-return true
-
-"bc"
-
-true
+begin
+void identifier
+end

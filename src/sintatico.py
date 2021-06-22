@@ -27,11 +27,11 @@ def checaTrans(states, atomo, state, idx):
 
 def sintaticAnalyzer(source, symbols, states):
 
-    source = "A02 A07 C01 A16"
-
+    
+    source = source.replace('\n', '')
     atomos = source.split(' ')
     atomos = converteAtomo(atomos, symbols)
-    print(atomos)
+    
     passou = 0#p saber se passou em algum dos automatos
     for st in states: # lembrar de verificar cada automato, ver aonde cada um vai ser chamado, se é no \n. ai fazer um split no source no \n e fazer um foreach
        
@@ -41,9 +41,9 @@ def sintaticAnalyzer(source, symbols, states):
             passou = 1
         
     if passou == 1:
-        print('Válido!')
+        print('Passou na verificação sintática!')
     else:
-        print('Inválido!')
+        print('Não passou na verificação sintática!')
                     
                     
     

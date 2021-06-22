@@ -7,16 +7,26 @@ from src.tabelas import getTabelaLexico, tabelaSimbolos, tabelaSimbolosPalavras,
 from src.helpers import removeComments
 from sys import exit
 
-if len(sys.argv)!= 2:
-    print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
-try:
+# if len(sys.argv)!= 2:
+#     print('Informe o codigo fonte! ex: python ./staticchecker.py entrada.201')
+# try:
 
-    if(len(sys.argv[1].split('.201'))!= 2):
-        f = open(sys.argv[1]+'.201', 'r')
+#     if(len(nameFile.split('.201'))!= 2):
+#         f = open(nameFile+'.201', 'r')
+#     else:
+#         f = open(nameFile, 'r')
+# except:
+#     print('Código fonte não encontrado!')
+#     exit()
+try:
+    nameFile = input('Digite o nome do arquivo:')
+    if(len(nameFile.split('.201'))!= 2):
+        f = open(nameFile+'.201', 'r')
     else:
-        f = open(sys.argv[1], 'r')
+        f = open(nameFile, 'r')
 except:
     print('Código fonte não encontrado!')
+    input()
     exit()
 source = f.read()
 f.close()
@@ -42,26 +52,26 @@ programFinal = f.read()
 f.close()
 states.append(programStates)
 
-# name = 'factor'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# factorStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# factorFinal = f.read()
-# f.close()
-# states.append(factorStates)
+name = 'factor'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+factorStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+factorFinal = f.read()
+f.close()
+states.append(factorStates)
 
 
-# name = 'statement'
-# f = open('txts\\wirth_'+name+'.txt', 'r')
-# text = f.read()
-# f.close()
-# statementStates = bpontos(name, text)
-# f = open('txts\\estado_final_'+name+'.txt', 'r')
-# statementFinal = f.read()
-# f.close()
-# states.append(statementStates)
+name = 'statement'
+f = open('txts\\wirth_'+name+'.txt', 'r')
+text = f.read()
+f.close()
+statementStates = bpontos(name, text)
+f = open('txts\\estado_final_'+name+'.txt', 'r')
+statementFinal = f.read()
+f.close()
+states.append(statementStates)
 
 source = removeComments(source)
 #verifica se tem aspas abertas
@@ -186,7 +196,7 @@ source = lexicalAnalyzer(source, tabelaSimbolosPalavras())
 #para testes, remover dps
 
 
-filename = sys.argv[1].split('.201')
+filename = nameFile.split('.201')
 
 f = open(filename[0]+'.LEX', 'w+')
 f.write('E-02\n')
@@ -214,5 +224,5 @@ f.close()
 
 result = sintaticAnalyzer(source, tabelaSimbolosPalavras(), states)#passa tabela de simbolos com none quando n quer adicionar um novo   
     
-
+input()
 
