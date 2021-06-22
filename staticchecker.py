@@ -85,6 +85,7 @@ for ch in source: #verificar se é uma string vazia
 
 if open_aspas%2 == 1:
     print('Aspas sem fechar na linha '+ str(line)) 
+    input()
     exit()
 
 #verifica se tem char e se char len ==1
@@ -103,10 +104,12 @@ for ch in source:
         if open_aspas==False:
             if(i==1):
                 print('Erro de aspas simples na linha '+ str(line)+'. Atribua um valor para o caracter!')
+                input()
                 exit()
             i=0
     if i>= 2:
         print('Erro de aspas simples na linha '+ str(line)+'. Verifique se foram fechadas ou se você não está definindo uma string(utilizar aspas duplas)')
+        input()
         exit()
 #verifica se usa algum simbolo reservado da tabela
 i = 0
@@ -120,6 +123,7 @@ for ch in source: #verificar se n ta dentro de uma string
     elif (ch == 'A' or ch == 'B' or ch == 'C' or ch == 'D' or ch == 'E') and open_aspas == False:
         if source[i+1].isdigit() == True and source[i+2].isdigit() == True:
             print(source[i]+source[i+1]+source[i+2]+"na linha "+str(line)+" é um simbolo reservado para compilação. Por favor, troque para outra combinação!")
+            input()
             exit()
     i+=1
 
@@ -143,6 +147,7 @@ for ch in source: #verificar se n ta dentro de uma string
     
 if pr !=0:
     print("parêntesis na linha "+str(line_open)+" deve ser fechado!")
+    input()
     exit()
 
 #verifica se fecha colchetes
@@ -165,6 +170,7 @@ for ch in source: #verificar se n ta dentro de uma string
     
 if pr !=0:
     print("Colchetes na linha "+str(line_open)+" deve ser fechado!")
+    input()
     exit()
 
 #verifica se fecha chaves
@@ -187,6 +193,7 @@ for ch in source: #verificar se n ta dentro de uma string
     
 if pr !=0:
     print("Chaves na linha "+str(line_open)+" deve ser fechado!")
+    input()
     exit()
 
 #analisador lexico

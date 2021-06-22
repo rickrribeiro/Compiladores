@@ -61,6 +61,7 @@ def lexicalAnalyzer(source, symbols):
         for ch in v:
           if ch.isnumeric() == False and ch != '.' and ch !='\n':
             print("simbolo "+v+" na linha "+str(line)+" não é reconhecido na linguagem!")
+            input()
             exit()
         aux = v.split('.')
         if len(aux)==1:
@@ -78,6 +79,7 @@ def lexicalAnalyzer(source, symbols):
       for ch in v:
         if ((ord(ch)<ord('a') or ord(ch)>ord('z')) and (ord(ch)<ord('A') or ord(ch)>ord('Z'))) and ch != '_' and ch !='\n' and ch.isnumeric()==False:
           print("simbolo "+v+" na linha "+str(line)+" não é reconhecido na linguagem!")
+          input()
           exit()
       if v == '\n':
         source+='\n'
