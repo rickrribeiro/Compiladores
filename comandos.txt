@@ -1,17 +1,3 @@
-Abrir vs code:
-    code .
-
-Git:
-    git pull - baixa alterações no projeto
-    git add . - adiciona arquivos para commitar
-    git commit -m "nome do commit" - prepara o commit
-    git push - sobe o commit
-
-python:
-
-    python staticchecker.py codigo.201  - roda o projeto
-    printar no console: print()
-
 
 
 class Estado:
